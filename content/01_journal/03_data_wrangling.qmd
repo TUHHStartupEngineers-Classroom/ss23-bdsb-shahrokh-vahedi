@@ -6,3 +6,17 @@ author: "Joschka Schwarz"
 ::: callout-note
 You can delete everything in here and start fresh.
 :::
+
+
+| **Rank** | **Organization**                            | **Number of Patents** |
+|------|-----------------------------------------|------------------:|
+| 1    | International Business Machines Corporation | 7547             |
+| 2    | Samsung Electronics Co., Ltd.              | 5835             |
+| 3    | Canon Kabushiki Kaisha                     | 4099             |
+| 4    | Sony Corporation                           | 3326             |
+| 5    | Microsoft Corporation                      | 3165             |
+| 6    | Google Inc.                                | 2668             |
+| 7    | Kabushiki Kaisha Toshiba                    | 2656             |
+| 8    | QUALCOMM Incorporated                       | 2597             |
+| 9    | LG Electronics Inc.                         | 2459             |
+| 10   | Panasonic Corporation                       | 2218             |
