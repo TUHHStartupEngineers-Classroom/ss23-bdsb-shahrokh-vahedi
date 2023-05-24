@@ -111,3 +111,9 @@ top_5_mainclass <- mainclass_total[order(-num_patents)][1:5]
 
 # Print the the top 5 USPTO tech main classes
 print(top_5_mainclass)
+
+# Export the dataframe to CSV
+file_path <- "exported_data/top_5_mainclass.csv"
+write.csv(top_5_mainclass, file = file_path, row.names = FALSE)
+# Display a message to confirm the export
+cat("Dataframe exported successfully to", file_path, "\n")
