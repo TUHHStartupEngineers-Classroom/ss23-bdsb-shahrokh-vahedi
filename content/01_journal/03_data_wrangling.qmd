@@ -23,6 +23,20 @@ What US company / corporation has the most patents? List the 10 US companies wit
 # Question 2 Recent Patent Activity
 What US company had the most patents granted in August 2014? List the top 10 companies with the most new granted patents for August 2014. Table 2 shows the top 10 companies in August 2014.
 
+Table 2: The Top 10 Companies with the Most Assigned/Granted Patents in August 2014
+
+| Rank | Organization                            | Number |
+|------|-----------------------------------------|-------:|
+| 1    | International Business Machines Corporation | 718    |
+| 2    | Samsung Electronics Co., Ltd.              | 524    |
+| 3    | Canon Kabushiki Kaisha                     | 361    |
+| 4    | Microsoft Corporation                      | 337    |
+| 5    | Sony Corporation                           | 269    |
+| 6    | Google Inc.                                | 240    |
+| 7    | QUALCOMM Incorporated                       | 223    |
+| 8    | Apple Inc.                                 | 222    |
+| 9    | Kabushiki Kaisha Toshiba                    | 213    |
+| 10   | LG Electronics Inc.                         | 211    |
 
 
 

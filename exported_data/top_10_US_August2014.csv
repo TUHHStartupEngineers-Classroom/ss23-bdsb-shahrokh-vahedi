@@ -1,11 +1,11 @@
-"organization","num_patents"
-"International Business Machines Corporation",718
-"Samsung Electronics Co., Ltd.",524
-"Canon Kabushiki Kaisha",361
-"Microsoft Corporation",337
-"Sony Corporation",269
-"Google Inc.",240
-"QUALCOMM Incorporated",223
-"Apple Inc.",222
-"Kabushiki Kaisha Toshiba",213
-"LG Electronics Inc.",211
+Rank,organization,num_patents
+1,International Business Machines Corporation,718
+2,"Samsung Electronics Co., Ltd.",524
+3,Canon Kabushiki Kaisha,361
+4,Microsoft Corporation,337
+5,Sony Corporation,269
+6,Google Inc.,240
+7,QUALCOMM Incorporated,223
+8,Apple Inc.,222
+9,Kabushiki Kaisha Toshiba,213
+10,LG Electronics Inc.,211
