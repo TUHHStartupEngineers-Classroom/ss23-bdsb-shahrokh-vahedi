@@ -63,11 +63,13 @@ total_patents <- q1_data[, .(n_patents = .N), by = .(assignee_id, organization)]
 top_10_US_patentholders <- total_patents[1:10]
 # Print the top 10 US patent holders
 print(top_10_US_patentholders)
-file_path <- "exported_data/top_10_US_patentholders.csv"
+
+
+
 
 # Export the dataframe to CSV
+file_path <- "exported_data/top_10_US_patentholders.csv"
 write.csv(top_10_US_patentholders, file = file_path, row.names = FALSE)
-
 # Display a message to confirm the export
 cat("Dataframe exported successfully to", file_path, "\n")
 
@@ -83,6 +85,12 @@ top_10_comp <- total_patents[order(-num_patents)][1:10]
 
 # Display the top 10 organizations that hold the highest number of patents in August 2014.
 as.data.table(top_10_comp)
+
+# Export the dataframe to CSV
+file_path <- "exported_data/top_10_US_August2014.csv"
+write.csv(top_10_comp, file = file_path, row.names = FALSE)
+# Display a message to confirm the export
+cat("Dataframe exported successfully to", file_path, "\n")
 
 #####
 # 3rd Answer: Analyze patents assigned to top 10 companies and count patents per technology class
