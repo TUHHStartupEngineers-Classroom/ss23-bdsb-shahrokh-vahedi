@@ -1,13 +1,12 @@
 ---
 title: "Data Wrangling"
-author: "Joschka Schwarz"
+author: "Shahrokh Vahedi"
 ---
 
-::: callout-note
-You can delete everything in here and start fresh.
-:::
+# Question 1 Patent Dominance
+What US company / corporation has the most patents? List the 10 US companies with the most assigned/granted patents. Table 1 shows the top 10 Companies.
 
-
+Table 1: The Top 10 US Companies with the Most Assigned/Granted Patents
 | **Rank** | **Organization**                            | **Number of Patents** |
 |------|-----------------------------------------|------------------:|
 | 1    | International Business Machines Corporation | 7547             |
@@ -20,3 +19,8 @@ You can delete everything in here and start fresh.
 | 8    | QUALCOMM Incorporated                       | 2597             |
 | 9    | LG Electronics Inc.                         | 2459             |
 | 10   | Panasonic Corporation                       | 2218             |
+
+
+
+
+#Source Code
