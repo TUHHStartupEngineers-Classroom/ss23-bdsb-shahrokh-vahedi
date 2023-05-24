@@ -3,7 +3,7 @@ title: "Data Wrangling"
 author: "Shahrokh Vahedi"
 ---
 
-# Question 1 Patent Dominance
+# Question 1: Patent Dominance
 What US company / corporation has the most patents? List the 10 US companies with the most assigned/granted patents. Table 1 shows the top 10 Companies.
 
 Table 1: The Top 10 Companies with the Most Assigned/Granted Patents 
@@ -21,7 +21,7 @@ Table 1: The Top 10 Companies with the Most Assigned/Granted Patents
 | 9    | LG Electronics Inc.                         | 2459             |
 | 10   | Panasonic Corporation                       | 2218             |
 
-# Question 2 Recent Patent Activity
+# Question 2: Recent Patent Activity
 What US company had the most patents granted in August 2014? List the top 10 companies with the most new granted patents for August 2014. Table 2 shows the top 10 companies in August 2014.
 
 Table 2: The Top 10 Companies with the Most Assigned/Granted Patents in August 2014
@@ -40,7 +40,7 @@ Table 2: The Top 10 Companies with the Most Assigned/Granted Patents in August 2
 | 10   | LG Electronics Inc.                         | 211    |
 
 
-# Question 3 Innovation in Tech
+# Question 3: Innovation in Tech
 What is the most innovative tech sector? For the top 10 companies (worldwide) with the most patents, what are the top 5 USPTO tech main classes?
 The following table shows the top 5 tech main classes.
 
