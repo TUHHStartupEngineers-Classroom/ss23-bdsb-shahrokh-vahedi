@@ -26,8 +26,7 @@ if (status_code == 200) {
   # Convert the results to a dataframe
   occurrences_df <- as.data.frame(data$results)
   
-  # Print the dataframe
-  print(occurrences_df)
+  
 } else {
   # Unsuccessful response
   print(paste("Request failed with status code:", status_code))
