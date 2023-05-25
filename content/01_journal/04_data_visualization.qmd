@@ -3,7 +3,7 @@ title: "Data Visualization"
 author: "Shahrokh Vahedi"
 ---
 
-# Challenge 1 Mapping the time course of the cumulative Covid-19 cases!
+# Challenge 1: Mapping the time course of the cumulative Covid-19 cases!
 
 
 The following figure shows the time series of total confirmed cases of Covid-19 for selected countries.
@@ -11,7 +11,7 @@ The following figure shows the time series of total confirmed cases of Covid-19 
 ![Fig. 1 Total Confirmed Cases of Covid-19](../../assets/img/challenge1_data_visualization.png)
 
 
-# Challenge 2 Visualize the distribution of the mortality rate
+# Challenge 2: Visualize the distribution of the mortality rate
 
 The following figure shows the world map of death rate of Covid-19.
 

@@ -384,24 +384,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>#Source Code</p>
-<div class="cell" data-hash="03_data_wrangling_cache/html/unnamed-chunk-1_c6ea3decdedfbf1c631f323911f9be44">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(vroom)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a>col_types <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb1-5"><a href="#cb1-5"></a>  <span class="at">id =</span> <span class="fu">col_character</span>(),</span>
-<span id="cb1-6"><a href="#cb1-6"></a>  <span class="at">type =</span> <span class="fu">col_character</span>(),</span>
-<span id="cb1-7"><a href="#cb1-7"></a>  <span class="at">date =</span> <span class="fu">col_date</span>(<span class="st">"%Y-%m-%d"</span>),</span>
-<span id="cb1-8"><a href="#cb1-8"></a>  <span class="at">num_claims =</span> <span class="fu">col_double</span>()</span>
-<span id="cb1-9"><a href="#cb1-9"></a>)</span>
-<span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co"># Load the patent data</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a>patent_data <span class="ot">&lt;-</span> <span class="fu">vroom</span>(</span>
-<span id="cb1-13"><a href="#cb1-13"></a>  <span class="at">file =</span> <span class="st">"../../reduced_data/patent.tsv"</span>, </span>
-<span id="cb1-14"><a href="#cb1-14"></a>  <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, </span>
-<span id="cb1-15"><a href="#cb1-15"></a>  <span class="at">col_types =</span> col_types,</span>
-<span id="cb1-16"><a href="#cb1-16"></a>  <span class="at">na =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"NULL"</span>)</span>
-<span id="cb1-17"><a href="#cb1-17"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="03_data_wrangling_cache/html/unnamed-chunk-1_5deea1c1f0bf51c7fed2726441a14ec8">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Data Wrangling</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(vroom)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a>col_types <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="at">id =</span> <span class="fu">col_character</span>(),</span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="at">type =</span> <span class="fu">col_character</span>(),</span>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="at">date =</span> <span class="fu">col_date</span>(<span class="st">"%Y-%m-%d"</span>),</span>
+<span id="cb1-10"><a href="#cb1-10"></a>  <span class="at">num_claims =</span> <span class="fu">col_double</span>()</span>
+<span id="cb1-11"><a href="#cb1-11"></a>)</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co"># Load the patent data</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>patent_data <span class="ot">&lt;-</span> <span class="fu">vroom</span>(</span>
+<span id="cb1-15"><a href="#cb1-15"></a>  <span class="at">file =</span> <span class="st">"../../reduced_data/patent.tsv"</span>, </span>
+<span id="cb1-16"><a href="#cb1-16"></a>  <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, </span>
+<span id="cb1-17"><a href="#cb1-17"></a>  <span class="at">col_types =</span> col_types,</span>
+<span id="cb1-18"><a href="#cb1-18"></a>  <span class="at">na =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"NULL"</span>)</span>
+<span id="cb1-19"><a href="#cb1-19"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning: The following named parsers don't match the column names: type</code></pre>
 </div>
@@ -458,26 +460,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">setnames</span>(assignee_data, <span class="st">"id"</span>, <span class="st">"assignee_id"</span>)</span>
 <span id="cb15-2"><a href="#cb15-2"></a>q1_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> assignee_data, <span class="at">y =</span> patent_assignee_data, <span class="at">by =</span> <span class="st">"assignee_id"</span>)</span>
 <span id="cb15-3"><a href="#cb15-3"></a></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="co"># Second Question: Data Table Production</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="fu">colnames</span>(patent_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] "id"         "date"       "num_claims"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">setnames</span>(patent_data, <span class="st">"id"</span>, <span class="st">"patent_id"</span>)</span>
-<span id="cb17-2"><a href="#cb17-2"></a>q2_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> q1_data, <span class="at">y =</span> patent_data, <span class="at">by =</span> <span class="st">"patent_id"</span>)</span>
-<span id="cb17-3"><a href="#cb17-3"></a></span>
-<span id="cb17-4"><a href="#cb17-4"></a><span class="co"># Third Question: Data Table Production</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a>uspc_data[, patent_id <span class="sc">:</span><span class="er">=</span> <span class="fu">as.character</span>(patent_id)]</span>
-<span id="cb17-6"><a href="#cb17-6"></a>q3_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> uspc_data, <span class="at">y =</span> q1_data, <span class="at">by =</span> <span class="st">"patent_id"</span>)</span>
-<span id="cb17-7"><a href="#cb17-7"></a></span>
-<span id="cb17-8"><a href="#cb17-8"></a><span class="do">#######</span></span>
-<span id="cb17-9"><a href="#cb17-9"></a><span class="co"># 1st Answer: Calculate total number of patents per assignee and organization</span></span>
-<span id="cb17-10"><a href="#cb17-10"></a><span class="fu">setDT</span>(q1_data)</span>
-<span id="cb17-11"><a href="#cb17-11"></a>total_patents <span class="ot">&lt;-</span> q1_data[, .(<span class="at">n_patents =</span> .N), by <span class="ot">=</span> .(assignee_id, organization)][<span class="fu">order</span>(<span class="sc">-</span>n_patents)]</span>
-<span id="cb17-12"><a href="#cb17-12"></a></span>
-<span id="cb17-13"><a href="#cb17-13"></a>top_10_US_patentholders <span class="ot">&lt;-</span> total_patents[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
-<span id="cb17-14"><a href="#cb17-14"></a><span class="co"># Print the top 10 US patent holders</span></span>
-<span id="cb17-15"><a href="#cb17-15"></a><span class="fu">print</span>(top_10_US_patentholders)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="co"># 1st Answer: Calculate total number of patents per assignee and organization</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="fu">setDT</span>(q1_data)</span>
+<span id="cb15-6"><a href="#cb15-6"></a>total_patents <span class="ot">&lt;-</span> q1_data[, .(<span class="at">n_patents =</span> .N), by <span class="ot">=</span> .(assignee_id, organization)][<span class="fu">order</span>(<span class="sc">-</span>n_patents)]</span>
+<span id="cb15-7"><a href="#cb15-7"></a>top_10_US_patentholders <span class="ot">&lt;-</span> total_patents[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb15-8"><a href="#cb15-8"></a><span class="co"># Print the top 10 US patent holders</span></span>
+<span id="cb15-9"><a href="#cb15-9"></a><span class="fu">print</span>(top_10_US_patentholders)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;                  assignee_id                                organization
 #&gt;  1: org_ONzMjdbZXiKfw4L0cXl6 International Business Machines Corporation
@@ -502,18 +490,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt;  9:      2459
 #&gt; 10:      2218</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="do">######</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="co"># 2nd Answer: Retrieve data for August 2014 and count patents per organization</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a>august_data <span class="ot">&lt;-</span> q2_data[<span class="fu">month</span>(date) <span class="sc">==</span> <span class="dv">8</span> <span class="sc">&amp;</span> <span class="fu">year</span>(date) <span class="sc">==</span> <span class="dv">2014</span>]</span>
-<span id="cb19-4"><a href="#cb19-4"></a></span>
-<span id="cb19-5"><a href="#cb19-5"></a><span class="co"># Group the data by organization and calculate the total number of patents for each organization.</span></span>
-<span id="cb19-6"><a href="#cb19-6"></a>total_patents <span class="ot">&lt;-</span> august_data[, .(<span class="at">num_patents =</span> .N), by <span class="ot">=</span> organization]</span>
-<span id="cb19-7"><a href="#cb19-7"></a></span>
-<span id="cb19-8"><a href="#cb19-8"></a><span class="co"># Sort the results in descending order based on the number of patents and select the top 10 entries.</span></span>
-<span id="cb19-9"><a href="#cb19-9"></a>top_10_comp <span class="ot">&lt;-</span> total_patents[<span class="fu">order</span>(<span class="sc">-</span>num_patents)][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
-<span id="cb19-10"><a href="#cb19-10"></a></span>
-<span id="cb19-11"><a href="#cb19-11"></a><span class="co"># Display the top 10 organizations that hold the highest number of patents in August 2014.</span></span>
-<span id="cb19-12"><a href="#cb19-12"></a><span class="fu">as.data.table</span>(top_10_comp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Export the dataframe to CSV</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>file_path <span class="ot">&lt;-</span> <span class="st">"../../exported_data/top_10_US_patentholders.csv"</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="fu">write.csv</span>(top_10_US_patentholders, <span class="at">file =</span> file_path, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="co"># Display a message to confirm the export</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="fu">cat</span>(<span class="st">"Dataframe exported successfully to"</span>, file_path, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; Dataframe exported successfully to ../../exported_data/top_10_US_patentholders.csv</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Second Question: Data Table Production</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="fu">colnames</span>(patent_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] "id"         "date"       "num_claims"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">setnames</span>(patent_data, <span class="st">"id"</span>, <span class="st">"patent_id"</span>)</span>
+<span id="cb21-2"><a href="#cb21-2"></a>q2_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> q1_data, <span class="at">y =</span> patent_data, <span class="at">by =</span> <span class="st">"patent_id"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3"></a></span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="co"># 2nd Answer: Retrieve data for August 2014 and count patents per organization</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>august_data <span class="ot">&lt;-</span> q2_data[<span class="fu">month</span>(date) <span class="sc">==</span> <span class="dv">8</span> <span class="sc">&amp;</span> <span class="fu">year</span>(date) <span class="sc">==</span> <span class="dv">2014</span>]</span>
+<span id="cb21-6"><a href="#cb21-6"></a></span>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="co"># Group the data by organization and calculate the total number of patents for each organization.</span></span>
+<span id="cb21-8"><a href="#cb21-8"></a>total_patents <span class="ot">&lt;-</span> august_data[, .(<span class="at">num_patents =</span> .N), by <span class="ot">=</span> organization]</span>
+<span id="cb21-9"><a href="#cb21-9"></a></span>
+<span id="cb21-10"><a href="#cb21-10"></a><span class="co"># Sort the results in descending order based on the number of patents and select the top 10 entries.</span></span>
+<span id="cb21-11"><a href="#cb21-11"></a>top_10_comp <span class="ot">&lt;-</span> total_patents[<span class="fu">order</span>(<span class="sc">-</span>num_patents)][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb21-12"><a href="#cb21-12"></a></span>
+<span id="cb21-13"><a href="#cb21-13"></a><span class="co"># Display the top 10 organizations that hold the highest number of patents in August 2014.</span></span>
+<span id="cb21-14"><a href="#cb21-14"></a><span class="fu">as.data.table</span>(top_10_comp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -522,25 +525,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </script>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="do">#####</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="co"># 3rd Answer: Analyze patents assigned to top 10 companies and count patents per technology class</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="co"># Perform a grouping operation on the data based on the organization and determine the count of patents for each group</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a>total_patents <span class="ot">&lt;-</span> q3_data[, .(<span class="at">num_patents =</span> .N), by <span class="ot">=</span> organization]</span>
-<span id="cb20-5"><a href="#cb20-5"></a></span>
-<span id="cb20-6"><a href="#cb20-6"></a><span class="co"># Sort the results in descending order based on the number of patents and select the top 10 entries</span></span>
-<span id="cb20-7"><a href="#cb20-7"></a>top_10_comp_patent <span class="ot">&lt;-</span> total_patents[<span class="fu">order</span>(<span class="sc">-</span>num_patents)][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
-<span id="cb20-8"><a href="#cb20-8"></a></span>
-<span id="cb20-9"><a href="#cb20-9"></a><span class="co"># Filter the data to only include patents assigned to the top 10 companies</span></span>
-<span id="cb20-10"><a href="#cb20-10"></a>top_10_comp_patent <span class="ot">&lt;-</span> q3_data[organization <span class="sc">%in%</span> top_10_comp_patent<span class="sc">$</span>organization]</span>
-<span id="cb20-11"><a href="#cb20-11"></a></span>
-<span id="cb20-12"><a href="#cb20-12"></a><span class="co"># Group the data by USPTO tech main class and count the number of patents</span></span>
-<span id="cb20-13"><a href="#cb20-13"></a>mainclass_total <span class="ot">&lt;-</span> top_10_comp_patent[, .(<span class="at">num_patents =</span> .N), by <span class="ot">=</span> mainclass_id]</span>
-<span id="cb20-14"><a href="#cb20-14"></a></span>
-<span id="cb20-15"><a href="#cb20-15"></a><span class="co"># Order the results by number of patents in descending order and subset the top 5 technology classes</span></span>
-<span id="cb20-16"><a href="#cb20-16"></a>top_5_mainclass <span class="ot">&lt;-</span> mainclass_total[<span class="fu">order</span>(<span class="sc">-</span>num_patents)][<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb20-17"><a href="#cb20-17"></a></span>
-<span id="cb20-18"><a href="#cb20-18"></a><span class="co"># Print the the top 5 USPTO tech main classes</span></span>
-<span id="cb20-19"><a href="#cb20-19"></a><span class="fu">print</span>(top_5_mainclass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Export the dataframe to CSV</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>file_path <span class="ot">&lt;-</span> <span class="st">"../../exported_data/top_10_US_August2014.csv"</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="fu">write.csv</span>(top_10_comp, <span class="at">file =</span> file_path, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="co"># Display a message to confirm the export</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="fu">cat</span>(<span class="st">"Dataframe exported successfully to"</span>, file_path, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; Dataframe exported successfully to ../../exported_data/top_10_US_August2014.csv</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Third Question: Data Table Production</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>uspc_data[, patent_id <span class="sc">:</span><span class="er">=</span> <span class="fu">as.character</span>(patent_id)]</span>
+<span id="cb24-3"><a href="#cb24-3"></a>q3_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> uspc_data, <span class="at">y =</span> q1_data, <span class="at">by =</span> <span class="st">"patent_id"</span>)</span>
+<span id="cb24-4"><a href="#cb24-4"></a></span>
+<span id="cb24-5"><a href="#cb24-5"></a><span class="co"># 3rd Answer: Analyze patents assigned to top 10 companies and count patents per technology class</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="co"># Perform a grouping operation on the data based on the organization and determine the count of patents for each group</span></span>
+<span id="cb24-7"><a href="#cb24-7"></a>total_patents <span class="ot">&lt;-</span> q3_data[, .(<span class="at">num_patents =</span> .N), by <span class="ot">=</span> organization]</span>
+<span id="cb24-8"><a href="#cb24-8"></a></span>
+<span id="cb24-9"><a href="#cb24-9"></a><span class="co"># Sort the results in descending order based on the number of patents and select the top 10 entries</span></span>
+<span id="cb24-10"><a href="#cb24-10"></a>top_10_comp_patent <span class="ot">&lt;-</span> total_patents[<span class="fu">order</span>(<span class="sc">-</span>num_patents)][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb24-11"><a href="#cb24-11"></a></span>
+<span id="cb24-12"><a href="#cb24-12"></a><span class="co"># Filter the data to only include patents assigned to the top 10 companies</span></span>
+<span id="cb24-13"><a href="#cb24-13"></a>top_10_comp_patent <span class="ot">&lt;-</span> q3_data[organization <span class="sc">%in%</span> top_10_comp_patent<span class="sc">$</span>organization]</span>
+<span id="cb24-14"><a href="#cb24-14"></a></span>
+<span id="cb24-15"><a href="#cb24-15"></a><span class="co"># Group the data by USPTO tech main class and count the number of patents</span></span>
+<span id="cb24-16"><a href="#cb24-16"></a>mainclass_total <span class="ot">&lt;-</span> top_10_comp_patent[, .(<span class="at">num_patents =</span> .N), by <span class="ot">=</span> mainclass_id]</span>
+<span id="cb24-17"><a href="#cb24-17"></a></span>
+<span id="cb24-18"><a href="#cb24-18"></a><span class="co"># Order the results by number of patents in descending order and subset the top 5 technology classes</span></span>
+<span id="cb24-19"><a href="#cb24-19"></a>top_5_mainclass <span class="ot">&lt;-</span> mainclass_total[<span class="fu">order</span>(<span class="sc">-</span>num_patents)][<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-20"><a href="#cb24-20"></a></span>
+<span id="cb24-21"><a href="#cb24-21"></a><span class="co"># Print the the top 5 USPTO tech main classes</span></span>
+<span id="cb24-22"><a href="#cb24-22"></a><span class="fu">print</span>(top_5_mainclass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;    mainclass_id num_patents
 #&gt; 1:          257        7956
@@ -548,6 +562,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; 3:          370        5448
 #&gt; 4:          348        4102
 #&gt; 5:          709        4010</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Export the dataframe to CSV</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>file_path <span class="ot">&lt;-</span> <span class="st">"../../exported_data/top_5_mainclass.csv"</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="fu">write.csv</span>(top_5_mainclass, <span class="at">file =</span> file_path, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb26-4"><a href="#cb26-4"></a><span class="co"># Display a message to confirm the export</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a><span class="fu">cat</span>(<span class="st">"Dataframe exported successfully to"</span>, file_path, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; Dataframe exported successfully to ../../exported_data/top_5_mainclass.csv</code></pre>
 </div>
 </div>
 

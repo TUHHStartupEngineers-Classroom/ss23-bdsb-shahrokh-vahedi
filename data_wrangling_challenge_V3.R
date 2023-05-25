@@ -1,65 +1,3 @@
----
-title: "Data Wrangling"
-author: "Shahrokh Vahedi"
----
-
-# Question 1: Patent Dominance
-What US company / corporation has the most patents? List the 10 US companies with the most assigned/granted patents. Table 1 shows the top 10 Companies.
-
-Table 1: The Top 10 Companies with the Most Assigned/Granted Patents 
-
-| **Rank** | **Organization**                            | **Number of Patents** |
-|------|-----------------------------------------|------------------:|
-| 1    | International Business Machines Corporation | 7547             |
-| 2    | Samsung Electronics Co., Ltd.              | 5835             |
-| 3    | Canon Kabushiki Kaisha                     | 4099             |
-| 4    | Sony Corporation                           | 3326             |
-| 5    | Microsoft Corporation                      | 3165             |
-| 6    | Google Inc.                                | 2668             |
-| 7    | Kabushiki Kaisha Toshiba                    | 2656             |
-| 8    | QUALCOMM Incorporated                       | 2597             |
-| 9    | LG Electronics Inc.                         | 2459             |
-| 10   | Panasonic Corporation                       | 2218             |
-
-# Question 2: Recent Patent Activity
-What US company had the most patents granted in August 2014? List the top 10 companies with the most new granted patents for August 2014. Table 2 shows the top 10 companies in August 2014.
-
-Table 2: The Top 10 Companies with the Most Assigned/Granted Patents in August 2014
-
-| Rank | **Organization**                            | **Number of Patents** |
-|------|-----------------------------------------|-------:|
-| 1    | International Business Machines Corporation | 718    |
-| 2    | Samsung Electronics Co., Ltd.              | 524    |
-| 3    | Canon Kabushiki Kaisha                     | 361    |
-| 4    | Microsoft Corporation                      | 337    |
-| 5    | Sony Corporation                           | 269    |
-| 6    | Google Inc.                                | 240    |
-| 7    | QUALCOMM Incorporated                       | 223    |
-| 8    | Apple Inc.                                 | 222    |
-| 9    | Kabushiki Kaisha Toshiba                    | 213    |
-| 10   | LG Electronics Inc.                         | 211    |
-
-
-# Question 3: Innovation in Tech
-What is the most innovative tech sector? For the top 10 companies (worldwide) with the most patents, what are the top 5 USPTO tech main classes?
-The following table shows the top 5 tech main classes.
-
-Table 3: Top 5 USPTO Tech Main Classes
-
-| Rank | **Main Class ID** | **Number of Patents** |
-|------|--------------|------------------:|
-| 1    | 257          | 7956             |
-| 2    | 455          | 6120             |
-| 3    | 370          | 5448             |
-| 4    | 348          | 4102             |
-| 5    | 709          | 4010             |
-
-
-#Source Code
-
-```{r}
-# Data Wrangling
-
 library(vroom)
 library(data.table)
 
@@ -72,25 +10,25 @@ col_types <- list(
 
 # Load the patent data
 patent_data <- vroom(
-  file = "../../reduced_data/patent.tsv", 
+  file = "reduced_data/patent.tsv", 
   delim = "\t", 
   col_types = col_types,
   na = c("", "NA", "NULL")
 )
 patent_assignee_data <- vroom(
-  file = "../../reduced_data/patent_assignee.tsv", 
+  file = "reduced_data/patent_assignee.tsv", 
   delim = "\t", 
   col_types = col_types,
   na = c("", "NA", "NULL")
 )
 assignee_data <- vroom(
-  file = "../../reduced_data/assignee.tsv", 
+  file = "reduced_data/assignee.tsv", 
   delim = "\t", 
   col_types = col_types,
   na = c("", "NA", "NULL")
 )
 uspc_data <- vroom(
-  file = "../../reduced_data/uspc.tsv", 
+  file = "reduced_data/uspc.tsv", 
   delim = "\t", 
   col_types = col_types,
   na = c("", "NA", "NULL")
@@ -116,7 +54,7 @@ top_10_US_patentholders <- total_patents[1:10]
 print(top_10_US_patentholders)
 
 # Export the dataframe to CSV
-file_path <- "../../exported_data/top_10_US_patentholders.csv"
+file_path <- "exported_data/top_10_US_patentholders.csv"
 write.csv(top_10_US_patentholders, file = file_path, row.names = FALSE)
 # Display a message to confirm the export
 cat("Dataframe exported successfully to", file_path, "\n")
@@ -139,7 +77,7 @@ top_10_comp <- total_patents[order(-num_patents)][1:10]
 as.data.table(top_10_comp)
 
 # Export the dataframe to CSV
-file_path <- "../../exported_data/top_10_US_August2014.csv"
+file_path <- "exported_data/top_10_US_August2014.csv"
 write.csv(top_10_comp, file = file_path, row.names = FALSE)
 # Display a message to confirm the export
 cat("Dataframe exported successfully to", file_path, "\n")
@@ -169,8 +107,7 @@ top_5_mainclass <- mainclass_total[order(-num_patents)][1:5]
 print(top_5_mainclass)
 
 # Export the dataframe to CSV
-file_path <- "../../exported_data/top_5_mainclass.csv"
+file_path <- "exported_data/top_5_mainclass.csv"
 write.csv(top_5_mainclass, file = file_path, row.names = FALSE)
 # Display a message to confirm the export
 cat("Dataframe exported successfully to", file_path, "\n")
-```
