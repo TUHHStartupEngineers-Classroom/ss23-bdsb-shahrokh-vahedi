@@ -6,6 +6,7 @@ author: "Shahrokh Vahedi"
 
 ![](assets/logo/TIE_logo.svg){width=80% fig-align="center"}
 
+
 # Welcome to the homepage of my Business Data Science Basics course!
 
 Unlock the power of data and elevate your business decisions to new heights. This website serves as a comprehensive platform where I proudly present the remarkable results of my tasks in the field of Business Data Science Basics.
