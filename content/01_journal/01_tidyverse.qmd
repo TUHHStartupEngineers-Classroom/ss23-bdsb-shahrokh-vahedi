@@ -14,7 +14,7 @@ The following figure shows the bar plot for sales by each state. As can be seen 
 # Challenge 1.2 Analyze of the sales by location and year
 *Figure 2* shows the bar plot for sales by each state and each year. 
 
-![Fig. 1 Bar Plot of sales for each state in Germany](../../assets/img/Challenge 1.2.png)
+![Fig. 2 Bar Plot of sales for each state in Germany](../../assets/img/Challenge 1.2.png)
 
 
 

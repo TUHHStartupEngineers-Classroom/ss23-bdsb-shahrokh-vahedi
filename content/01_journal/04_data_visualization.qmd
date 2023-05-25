@@ -15,7 +15,7 @@ The following figure shows the time series of total confirmed cases of Covid-19 
 
 The following figure shows the world map of death rate of Covid-19.
 
-![Fig. 1 Mortality Rate of Covid-19 (as of 25 May 2023)](../../assets/img/ch_2_data_visualization.png)
+![Fig. 2 Mortality Rate of Covid-19 (as of 25 May 2023)](../../assets/img/ch_2_data_visualization.png)
 
 
 # Source Code
