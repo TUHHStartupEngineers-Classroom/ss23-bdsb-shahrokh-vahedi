@@ -1,8 +1,77 @@
 ---
 title: "Data Acquisition"
-author: "Joschka Schwarz"
+author: "Shahrokh Vahedi"
 ---
 
-::: callout-note
-You can delete everything in here and start fresh.
-:::
+# Challenge: Get Data via an API
+
+In this code, occurrence data for the honeybee species was fetched using the GBIF API. The latitude and longitude of the occurrences were then plotted on a map of the world using the `ggplot2` and `maps` packages in R. The resulting plot (Fig. 1) shows the distribution of honeybee occurrences (the fetched data is primarily for America continent).
+
+![Fig. 1 The Bio-diversity scatter plot of Honey Bee](../../assets/img/challenge1_data_aquisition.png)
+
+
+# Scrape one of the competitor websites of canyon (either https://www.rosebikes.de/ or https://www.radon-bikes.de) and create a small database
+
+Unfortunately, I was not able to get the hang of html structure and do scraping. So I will leave this part Blank
+
+# Source code
+```{r}
+
+# Load required libraries
+library(httr)
+library(jsonlite)
+
+# Define API endpoint and parameters
+api_url <- "https://api.gbif.org/v1/occurrence/search"
+params <- list(
+  taxonKey = 2435098, # Taxon key for the species (e.g., 2435098 for "Apis mellifera" - the honeybee)
+  limit = 300         # Number of records to fetch (max 300)
+)
+
+# Send GET request to the API
+response <- GET(api_url, query = params)
+
+
+
+# Check the HTTP status code
+status_code <- status_code(response)
+if (status_code == 200) {
+  # Successful response
+  print("Request successful!")
+  # Parse JSON response
+  json_data <- content(response, as = "text", encoding = "UTF-8")
+  data <- fromJSON(json_data, flatten = TRUE)
+  
+  # Convert the results to a dataframe
+  occurrences_df <- as.data.frame(data$results)
+  
+  # Print the dataframe
+
+} else {
+  # Unsuccessful response
+  print(paste("Request failed with status code:", status_code))
+}
+
+
+
+# Load required libraries
+library(ggplot2)
+library(ggmap)
+library(maps)
+
+# Remove rows with missing latitude or longitude
+occurrences_df <- occurrences_df[!is.na(occurrences_df$decimalLatitude) & !is.na(occurrences_df$decimalLongitude),]
+
+# Get the world map data
+world_map <- map_data("world")
+
+# Create a ggplot object with the world map
+map_plot <- ggplot() +
+  geom_polygon(data = world_map, aes(x = long, y = lat, group = group), fill = "gray80", color = "gray50") +
+  theme_minimal()
+
+# Add the scatter plot of latitude and longitude on top of the map
+map_plot + geom_point(data = occurrences_df, aes(x = decimalLongitude, y = decimalLatitude), color = "blue", alpha = 0.5) +
+  labs(title = "Bio-diversity of Honey Bees", x = "Longitude", y = "Latitude")
+
+```
