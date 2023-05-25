@@ -8,6 +8,8 @@ author: "Shahrokh Vahedi"
 In this code, occurrence data for the honeybee species was fetched using the GBIF API. The latitude and longitude of the occurrences were then plotted on a map of the world using the `ggplot2` and `maps` packages in R. The resulting plot (Fig. 1) shows the distribution of honeybee occurrences (the fetched data is primarily for America continent).
 
 ![Fig. 1 The Bio-diversity scatter plot of Honey Bee](../../assets/img/challenge1_data_aquisition.png)
+
+
 # Scrape one of the competitor websites of canyon (either https://www.rosebikes.de/ or https://www.radon-bikes.de) and create a small database
 
 Unfortunately, I was not able to get the hang of html structure and do scraping. So I will leave this part Blank
